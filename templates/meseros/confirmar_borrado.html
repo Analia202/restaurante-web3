@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Eliminar Mesero{% endblock %}
+{% block content %}
+<h2>¿Seguro que deseas eliminar este mesero?</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirmar</button>
+    <a href="{% url 'meseros:lista' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

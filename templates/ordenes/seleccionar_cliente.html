@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Seleccionar Cliente{% endblock %}
+{% block content %}
+
+<h2>Selecciona el cliente que pagará la orden</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr><th>Nombre</th><th>NIT</th><th>Acción</th></tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.nit }}</td>
+            <td>
+                <a href="{% url 'ordenes:asignar_cliente_y_cerrar' orden_id cliente.id %}" class="btn btn-success">
+                    Seleccionar y Pagar
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

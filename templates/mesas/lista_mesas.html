@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Mesas{% endblock %}
+{% block content %}
+<h2>Lista de Mesas</h2>
+<a href="{% url 'mesas:nuevo' %}" class="btn btn-success mb-3">Nueva Mesa</a>
+<table class="table table-striped table-bordered bg-white shadow-sm">
+    <thead>
+        <tr><th>Número</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+        {% for mesa in mesas %}
+        <tr>
+            <td>Mesa {{ mesa.numero }}</td>
+            <td>
+                <a href="{% url 'mesas:editar' mesa.pk %}" class="btn btn-sm btn-warning">Editar</a>
+                <a href="{% url 'mesas:eliminar' mesa.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

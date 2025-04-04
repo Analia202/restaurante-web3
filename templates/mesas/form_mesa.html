@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Formulario de Mesa{% endblock %}
+{% block content %}
+<h2>Formulario de Mesa</h2>
+<form method="post" class="card p-4 bg-white shadow-sm">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="{% url 'mesas:lista' %}" class="btn btn-secondary">Volver</a>
+</form>
+{% endblock %}

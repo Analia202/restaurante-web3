@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Eliminar Orden{% endblock %}
+{% block content %}
+<h2>¿Deseas eliminar esta orden?</h2>
+<form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger">Confirmar</button>
+    <a href="{% url 'ordenes:lista' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

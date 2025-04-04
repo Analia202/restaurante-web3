@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Formulario de Orden{% endblock %}
+{% block content %}
+<h2>Formulario de Orden</h2>
+<form method="post" class="card p-4 bg-white shadow-sm">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary">Guardar</button>
+   <a href="{% url 'ordenes:seleccionar_cliente' object.id %}" class="btn btn-warning w-100 my-2">
+  Pagar Orden
+</a>
+
+    <a href="{% url 'ordenes:lista' %}" class="btn btn-secondary">Volver</a>
+</form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Órdenes{% endblock %}
+{% block content %}
+<h2>Lista de Órdenes</h2>
+<a href="{% url 'ordenes:nuevo' %}" class="btn btn-success mb-3">Nueva Orden</a>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr><th>ID</th><th>Estado</th><th>Fecha</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+        {% for orden in ordenes %}
+        <tr>
+            <td>{{ orden.id }}</td>
+            <td>{{ orden.estado }}</td>
+            <td>{{ orden.fechaHora }}</td>
+            <td>
+                <a href="{% url 'ordenes:editar' orden.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'ordenes:eliminar' orden.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Seleccionar Cliente para Pagar{% endblock %}
+{% block content %}
+
+<h2>Clientes con Órdenes Abiertas</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr><th>Nombre</th><th>NIT</th><th>Acción</th></tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.nit }}</td>
+            <td>
+                <a href="{% url 'ordenes:cerrar_orden' cliente.pk %}" class="btn btn-success">Pagar Orden</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
